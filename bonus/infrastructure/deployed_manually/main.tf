@@ -8,12 +8,6 @@ terraform {
     region = "eu-central-1"
     profile = "bi"
     bucket = "demiway-tf-state"
-    key = "impactor-docker-repos.tfstate"
+    key = "bonus-deployed-manually.tfstate"
   }
-}
-
-module "bff" {
-  source = "../modules/ecr_repository"
-  repository_name = "bonus/bff"
-  ecr_account = "548449406202"
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "essential": true,
+    "image": "${image}",
+    "name": "${name}",
+    "portMappings": [
+      {
+        "containerPort": 5002,
+        "hostPort": 5002,
+        "protocol": "tcp"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "${log_group_region}",
+        "awslogs-group": "${log_group_name}",
+        "awslogs-stream-prefix": "#"
+      }
+    },
+    "environment": [
+      {
+        "name": "REGION",
+        "value": "${region}"
+      },
+      {
+        "name": "ALLOW_LOCALHOST_ORIGIN",
+        "value": "${allow_localhost_origin}"
+      }
+    ]
+  }
+]

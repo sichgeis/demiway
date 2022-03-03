@@ -216,7 +216,7 @@
                         </includes>
                         <parallel>all</parallel>
                         <threadCount>10</threadCount>
-                        <failIfNoTests>true</failIfNoTests>
+                        <failIfNoTests>false</failIfNoTests>
                     </configuration>
                 </plugin>
                 <plugin>
