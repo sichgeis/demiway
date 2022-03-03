@@ -1,0 +1,31 @@
+<configuration>
+
+<logger name="de.demiway" level="info" />
+
+<logger name="com.amazonaws.services.kinesis" level="warn" />
+
+<logger name="com.amazonaws.services.kinesis.metrics" level="warn" />
+
+<logger name="org.flywaydb.core.internal.database.ExecutableSqlScript" level="warn" />
+
+<logger name="org.flywaydb.core.internal.command.DbMigrate" level="warn" />
+
+<!-- !!! use only for local debugging !!! -->
+<!--<logger name="org.hibernate.SQL" level="debug" />-->
+<!--<logger name="org.hibernate.type.descriptor.sql" level="trace" />-->
+
+<!-- those two log our database password on "info" level -->
+<logger name="com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource" level="warn" />
+<logger name="org.hibernate.c3p0.internal.C3P0ConnectionProvider" level="warn" />
+
+<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+        <pattern>{ "level": "%level", "class": "%c", "text": "%replace(%replace(%msg%ex{5}){"[\r\n]", "\\n\\t"}){"[\"\t]", ""}", "CorrelationID": "%mdc{correlation-id}" }%nopex%n</pattern>
+    </encoder>
+</appender>
+
+<root level="info">
+    <appender-ref ref="STDOUT" />
+</root>
+
+</configuration>
