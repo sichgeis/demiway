@@ -16,6 +16,9 @@ if [ "${action}" = "apply" ]; then
     cd $pwd/bonus/infrastructure/deployed_manually
     ./terraform.sh apply -auto-approve
 
+    cd $pwd/bonus/backend
+    AWS_PROFILE=bi mvn -T2C install jib:build -T 1.5C
+
     cd $pwd/bonus/infrastructure
     ./terraform.sh apply -auto-approve
 
